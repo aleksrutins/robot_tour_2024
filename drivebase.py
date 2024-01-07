@@ -20,7 +20,7 @@ class BBADriveBase(DriveBase):
     def __init__(self):
         self.left_motor = Motor(Port.A)
         self.right_motor = Motor(Port.B)
-        super.__init__(self.left_motor, self.right_motor, wheel_diameter=55.5, axle_track=104)
+        super().__init__(self.left_motor, self.right_motor, 55.5, 104)
     
     def run_grid(self, direction: int, distance: int):
         if direction == FORWARD:
@@ -60,9 +60,15 @@ class BBADriveBase(DriveBase):
 
         while current_pos.x != target.x and current_pos.y != target.y:
             difference = Vec2.diff(target, current_pos)
+
+            if current_pos.x == target.x and current_pos.y != target.y:
+                axis = Y
+            elif current_pos.x != target.x and current_pos.y == target.y:
+                axis = X
+
             if self.sensors.should_turn():
                 axis = self.switch_axis(axis)
-            
+
             delta = 0
             if axis == X:
                 delta = difference.x

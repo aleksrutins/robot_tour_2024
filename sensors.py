@@ -1,8 +1,8 @@
-from pybricks.ev3devices import UltrasonicSensor
+from pybricks.iodevices import Ev3devSensor
 from pybricks.parameters import Port
 
 class Sensors:
-    distance_sensor = UltrasonicSensor(Port.S1)
+    distance_sensor = Ev3devSensor(Port.S1)
 
     def should_turn(self) -> bool:
-        return self.distance_sensor.distance() < 100
+        return self.distance_sensor.read('DC_ALL')[6] < 100
