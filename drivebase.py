@@ -3,14 +3,17 @@ from pybricks.parameters import Port
 from pybricks.robotics import DriveBase
 from sensors import Sensors
 from util import Vec2
+from enum import Enum
 
-FORWARD = 0
-REVERSE = 1
-LEFT = 2
-RIGHT = 3
+class Direction(Enum):
+    FORWARD = 0
+    REVERSE = 1
+    LEFT = 2
+    RIGHT = 3
 
-X = 0
-Y = 1
+class Axis(Enum):
+    X = 0
+    Y = 1
 
 GRID_SIZE = 500
 
@@ -56,7 +59,7 @@ class BBADriveBase(DriveBase):
     def run_to_target(self, start: Vec2, target: Vec2):
         current_pos = start
 
-        axis = FORWARD
+        axis = X
 
         while current_pos.x != target.x and current_pos.y != target.y:
             difference = Vec2.diff(target, current_pos)
