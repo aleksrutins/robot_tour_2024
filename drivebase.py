@@ -5,13 +5,12 @@ from pybricks.robotics import DriveBase
 GRID_SIZE = 500
 
 
-class BBADriveBase(DriveBase):
+class BBADriveBxase(DriveBase):
 
     def __init__(self):
-        self.use_gyro(True)
         self.left_motor = Motor(Port.A)
         self.right_motor = Motor(Port.B)
-        super().__init__(self.left_motor, self.right_motor, 55.5, 346)
+        super().__init__(self.left_motor, self.right_motor, 55.5, 203)
 
     def init(self):
         self.straight(GRID_SIZE / 2)
