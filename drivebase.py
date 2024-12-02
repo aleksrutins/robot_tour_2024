@@ -5,7 +5,7 @@ from pybricks.robotics import DriveBase
 GRID_SIZE = 500
 
 
-class BBADriveBxase(DriveBase):
+class BBADriveBase(DriveBase):
 
     def __init__(self):
         self.left_motor = Motor(Port.A)
