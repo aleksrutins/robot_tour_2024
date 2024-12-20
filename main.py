@@ -9,4 +9,4 @@ from pybricks.hubs import EV3Brick
 # Create your objects here.
 ev3 = EV3Brick()
 
-run('iflfrbrf')
+run('iflflflfl')
